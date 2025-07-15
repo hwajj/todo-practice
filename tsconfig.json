@@ -3,5 +3,8 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "types": ["node"] //여러 타입 정의를 한꺼번에 로드
+  }
 }
