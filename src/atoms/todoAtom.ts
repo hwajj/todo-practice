@@ -1,9 +1,5 @@
 import { atom, type AtomEffect } from "recoil";
-
-export type TodoItem = {
-  text: string;
-  done: boolean;
-};
+import type { TodoItem } from "../types/TodoItem.ts";
 
 const localStorageEffect =
   <T>(key: string): AtomEffect<T> =>
