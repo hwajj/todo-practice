@@ -1,12 +1,29 @@
 import { RecoilRoot } from "recoil";
-import TodoList from "./component/TodoList.tsx";
-import AddTodo from "./component/AddTodo.tsx";
+import AddTodo from "@/component/AddTodo";
+import RecoilNexus from "recoil-nexus";
+import { Provider } from "react-redux";
+import { ReduxTodoService } from "@/service/TodoService/ReduxTodoService";
+import TodoListDI from "@/component/TodoListDI";
+import { RecoilTodoService } from "@/service/TodoService/RecoilTodoService";
+import { store } from "@/store";
 
 function App() {
-  return (
+  const useRedux = true; // true면 Redux, false면 Recoil
+
+  const todoService = useRedux
+    ? new ReduxTodoService()
+    : new RecoilTodoService();
+
+  return useRedux ? (
+    <Provider store={store}>
+      <AddTodo service={todoService} />
+      <TodoListDI service={todoService} />
+    </Provider>
+  ) : (
     <RecoilRoot>
-      <AddTodo />
-      <TodoList />
+      <RecoilNexus />
+      <AddTodo service={todoService} />
+      <TodoListDI service={todoService} />
     </RecoilRoot>
   );
 }

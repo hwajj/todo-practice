@@ -1,13 +1,13 @@
 //  상태를 localStorage와 동기화하는 서비스
 import type { TodoService } from "./TodoService.ts";
-import type { TodoItem } from "../../atoms/todoAtom.ts";
+import type { TodoItem } from "../../types/TodoItem.ts";
 
 export class LocalStorageSync {
   private service: TodoService;
   private storageKey: string;
   /**
    * 생성자
-   * @param service 상태관리 서비스(TodoService 인터페이스 구현체)
+   * @param service 상태관리 서비스(TodoService 인터페이스 구현체)ㄴ
    * @param storageKey localStorage에 저장할 때 사용할 key 값
    */
   constructor(

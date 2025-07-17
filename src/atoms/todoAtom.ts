@@ -18,7 +18,7 @@ const localStorageEffect =
     });
   };
 
-export const todoState = atom<TodoItem[]>({
+export const todoAtom = atom<TodoItem[]>({
   key: "todoState",
   default: [],
   effects: [localStorageEffect("todoState")],

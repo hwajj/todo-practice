@@ -1,6 +1,7 @@
-import type { TodoItem } from "../../atoms/todoAtom.ts";
 //  To-Do 상태관리 공통 서비스 인터페이스
 // 이 인터페이스를 구현하면 Redux/Recoil/Zustand 등 상태관리 라이브러리를 자유롭게 교체 가능
+import { TodoItem } from "@/types/TodoItem";
+
 export interface TodoService {
   /**
    * 현재 모든 To-Do 항목을 가져옵니다.
